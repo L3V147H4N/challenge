@@ -1,1 +1,9 @@
-# challenge
+# Challenge
+
+##ENV
+- PORT=int
+- DATABASE_NAME=string
+- DATABASE_HOST=string
+- DATABASE_USERNAME='root'
+- DATABASE_PASSWORD=string
+- DATABASE_DIALECT=string
