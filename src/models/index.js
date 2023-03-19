@@ -7,52 +7,49 @@ import{ Episode }from './episode.model.js';
 import { Actor_Movie } from './actor_movie.model.js';
 import { Actor_Tvshow } from './actor_tvshow.model.js';
 
-// Director.hasMany(Movie, {
-//     as: 'movie',
-//     foreignKey: 'directorId',
-// });
+Director.hasMany(Movie);
 
-// Movie.belongsTo(Director, { as: 'director'});
+Movie.belongsTo(Director);
 
-// Actor.belongsToMany(Movie, {
-//     through: Actor_Movie
-// });
+Actor.belongsToMany(Movie, {
+    through: Actor_Movie
+});
 
-// Movie.belongsToMany(Actor, {
-//     through: Actor_Movie
-// });
+Movie.belongsToMany(Actor, {
+    through: Actor_Movie
+});
 
 Tvshow.belongsTo(Director);
 
 Director.hasOne(Tvshow);
 
-// Actor.belongsToMany(Tvshow, {
-//     through: Actor_Tvshow
-// });
+Actor.belongsToMany(Tvshow, {
+    through: Actor_Tvshow
+});
 
-// Tvshow.belongsToMany(Actor, {
-//     through: Actor_Tvshow
-// })
+Tvshow.belongsToMany(Actor, {
+    through: Actor_Tvshow
+})
 
-// Tvshow.hasMany(Season, {
-//     foreignKey: 'tvshowId',
-//     sourceId: 'id'
-// });
+Tvshow.hasMany(Season, {
+    foreignKey: 'tvshowId',
+    sourceId: 'id'
+});
 
-// Season.belongsTo(Tvshow, {
-//     foreignKey: 'tvshowId',
-//     targetId: 'id'
-// });
+Season.belongsTo(Tvshow, {
+    foreignKey: 'tvshowId',
+    targetId: 'id'
+});
 
-// Season.hasMany(Episode, {
-//     foreignKey: 'seasonId',
-//     sourceId: 'id'
-// });
+Season.hasMany(Episode, {
+    foreignKey: 'seasonId',
+    sourceId: 'id'
+});
 
-// Episode.belongsTo(Season, {
-//     foreignKey: 'seasonId',
-//     targetId: 'id'
-// });
+Episode.belongsTo(Season, {
+    foreignKey: 'seasonId',
+    targetId: 'id'
+});
 
 
 

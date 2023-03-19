@@ -8,6 +8,9 @@ export const Season = sequelize.define('season',{
         autoIncrement: true,
         allowNull: false
     },
+    seasonNumber: {
+        type: DataTypes.INTEGER
+    },
     year: {
         type: DataTypes.DATE
     },

@@ -23,11 +23,8 @@ export class DirectorService {
                 where: 
                 {
                     id
-                }, 
-                include:[ {
-                    model: Tvshow
-                }]
-            });
+                },
+        });
             return director;
             
         } catch (error) {
@@ -44,16 +41,27 @@ export class DirectorService {
                 age: data.age,
                 nationality: data.nationality,
             });
+
+            await newDirector.save();
+
             if(data.tvshowId){
                 await Tvshow.update({
-                    directorId: data.tvshowId
-                });
+                    directorId: newDirector.id
+                },
+                { where: {
+                    id: data.movieId
+                }
+            });
             };
             if(data.movieId){
                 await Movie.update({
-                    directorId: data.movieId
-                })
-            }
+                    directorId: newDirector.id
+                },
+               { where: {
+                    id: data.movieId
+                }
+            });
+        }
 
             return newDirector;
         } catch (error) {

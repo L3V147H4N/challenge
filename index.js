@@ -14,7 +14,7 @@ const main = async () => {
         await sequelize.authenticate();
         console.log(chalk.magentaBright('Connection has been stablished succesfully.'));
         
-        await sequelize.sync({ force: true});
+        await sequelize.sync({ alter: true});
 
         app.listen(port, () => {
             console.log(chalk.green(`Server running on port ${port}`));

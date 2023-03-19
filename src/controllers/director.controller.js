@@ -38,14 +38,14 @@ export class DirectorController {
     };
 
     async create(req, res){
-        const {name, age, nationality, awards, tvshowId} = req.body;
+        const {name, age, nationality, awards, tvshowId, movieId} = req.body;
      
         if(!name){
             return res.status(400).send({message: "Name is required!"});
         }
         try {
             const body = {
-                name, age, nationality, awards, tvshowId
+                name, age, nationality, awards, tvshowId, movieId
             }
             await directorServices.create(body);           
             return res.status(200).send('Director created succesfully');

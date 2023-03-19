@@ -11,7 +11,9 @@ export const Episode = sequelize.define('episode',{
     title: {
         type: DataTypes.STRING
     },
-   
+    episodeNumber: {
+        type: DataTypes.INTEGER
+    }
 },   {
   timestamps: false
 });

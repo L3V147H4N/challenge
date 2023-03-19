@@ -1,9 +1,11 @@
-// import { Router } from "express";
+import { Router } from "express";
+import { TvShowController } from "../controllers/index.js";
 
-// const router = Router();
+const router = Router();
+const tvShowController = new TvShowController()
 
-// router.get('/all', )
-// router.get('/:id', )
-// router.post('/create', )
+router.get('/all', tvShowController.getAll)
+router.get('/:id', tvShowController.getById)
+router.post('/create', tvShowController.create)
 
-// export default router;
+export default router;
